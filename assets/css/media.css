@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 
@@ -84,25 +85,37 @@
     #klm {
         top: 62.5vh;
     }
-    /* VUELOS */
+    /* VUELOS y HOTELES*/
     #vuelos {
         grid-column: 1 / span 2;
         height: 150vh;
+    }
+    #hoteles {
+        grid-column: 1 / span 2;
+        height: 95vh;
     }
     #vuelos-title {
         padding-right: 12vh;
         text-align: right;
     }
-    .vuelos-cat {
+    #hoteles-title {
+        padding-left: 13.5vh;
+    }
+    #vuelos .cat {
         height: 30%;
+    }
+    #hoteles .cat {
+        height: 50%;
+    }
+    .cat {
         display: flex;
         justify-content: space-evenly;
     }
-    .vuelos-cat a {
-        font-size: 2.3em;
-    }
-    .vuelos-subcat {
+    .subcat {
         width: 50vh;
+    }
+    .cat-title {
+        font-size: 2em;
     }
     .cat-title::after {
         content: "";
@@ -116,17 +129,17 @@
         width: 100%;
         transition: width 0.5s linear;
     }
-    .cat-text {
-        padding: 0vh 2vw;
-        font-size: 1.4em;
-    }
 
-    
-    #estadias {
+
+
+
+    #buscador {
         grid-column: 1 / span 2;
+        height: 50vh;
     }
-    #contacto {
+    #pack {
         grid-column: 1 / span 2;
+        height: 50vh;
     }
     /* FOOTER */
     footer {

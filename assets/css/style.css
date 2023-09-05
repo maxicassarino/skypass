@@ -45,14 +45,14 @@ section {
     height: 100vh;
 }
 
-a {
+header a {
     color: #360707;
-    text-decoration: none;
 }
 
 p {
     color: white;
 }
+
 
 /* PORTADA */
 
@@ -73,7 +73,8 @@ h2 {
     position: absolute;
 }
 
-/* VUELOS */
+
+/* VUELOS y HOTELES*/
 
 #vuelos {
     background-color: #171218;
@@ -82,64 +83,88 @@ h2 {
     justify-content: space-evenly;
 }
 
-.vuelos-subcat {
+#hoteles {
+    background-color: #360707;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.subcat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     border: 5px solid white;
     background-size: cover;
+    filter: grayscale(80%);
 }
 
+.subcat:hover {
+    filter: grayscale(0%);
+    transition: 2s;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
 #ny {
-    background-image: url(../images/Inicio/newyork.jpg);
+    background-image: url(../images/Inicio/ciudades/newyork.jpg);
 }
 
 #miami {
-    background-image: url(../images/Inicio/miami.jpg);
+    background-image: url(../images/Inicio/ciudades/miami.jpg);
 }
 
 #madrid {
-    background-image: url(../images/Inicio/madrid.jpg);
+    background-image: url(../images/Inicio/ciudades/madrid.jpg);
 }
 
 #londres {
-    background-image: url(../images/Inicio/londres.jpg);
+    background-image: url(../images/Inicio/ciudades/londres.jpg);
 }
 
 #tokio {
-    background-image: url(../images/Inicio/tokio.jpg);
+    background-image: url(../images/Inicio/ciudades/tokio.jpg);
 }
 
 #aruba {
-    background-image: url(../images/Inicio/aruba.jpg);
+    background-image: url(../images/Inicio/ciudades/aruba.jpg);
 }
 
-#vuelos a {
-    color: white;
+#hotelny {
+    background-image: url(../images/Inicio/ciudades/hotel1ny.jpg);
 }
 
-.cat-text {
-    padding: 0vh 2vw;
-    font-size: 1.4em;
-    text-align: center;
+#hotelmiami {
+    background-image: url(../images/Inicio/ciudades/hotel1miami.jpg);
+}
+
+#hoteltokio {
+    background-image: url(../images/Inicio/ciudades/hotel1tokio.jpg);
 }
 
 
-#estadias {
-    background-color: white;
-}
 
-#ofertas {
-    background-color: #360707;
-}
 
-#argentina {
+
+#buscador {
     background-color: #171218;
 }
 
-#contacto {
-    background-color: white;
+#destino {
+    background-color: #360707;
+}
+
+#estadia {
+    background-color: #171218;
+}
+
+#pack {
+    background-color: #360707;
 }
 
 /* FOOTER */

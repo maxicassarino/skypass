@@ -7,6 +7,7 @@ const destinos = [{Lugar: "New York", Pasaje: 1000000, Pasajeros: 1, Recargo: "2
 ]
 
 
+
 alert(`Bienvenido! Inicie su consulta`);
 let eleccion = prompt("Ingrese su destino de interés");
 let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
@@ -19,21 +20,18 @@ const buscarDestino = destinos.find(busqueda => busqueda.Lugar === eleccion)
 console.log(buscarDestino);
 
 
+
 localStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
 
 
 localStorage.setItem("Paquete Seleccionado", JSON.stringify(buscarDestino));
 
+
 for (const destino of destinos) {
     sessionStorage.setItem(destino.Lugar, destino.Total)
 };
 
-
 localStorage.setItem(`Despedida`, `Buen Viaje!`)
 
 
-let titulo = document.getElementById("vuelos-title")
-console.log(titulo.innerHTML)
-let seccion = document.getElementById("vuelos")
-console.log(seccion.innerHTML)
 
