@@ -1,0 +1,8 @@
+[
+    {"Lugar": "New York", "Pasaje": 1000000, "Pasajeros": 1, "Recargo": "21%", "Total": 0},
+    {"Lugar": "Madrid", "Pasaje": 750000, "Pasajeros": 1, "Recargo": "21%", "Total": 0},
+    {"Lugar": "Miami", "Pasaje": 600000, "Pasajeros": 1, "Recargo": "21%", "Total": 0},
+    {"Lugar": "Londres", "Pasaje": 800000, "Pasajeros": 1, "Recargo": "21%", "Total": 0},
+    {"Lugar": "Aruba", "Pasaje": 500000, "Pasajeros": 1, "Recargo": "21%", "Total": 0},
+    {"Lugar": "Tokio", "Pasaje": 600000, "Pasajeros": 1, "Recargo": "21%", "Total": 0}
+]

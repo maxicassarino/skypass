@@ -1,0 +1,160 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+    animation: opacity 2.5s ;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+
+/* HEADER */
+
+header {
+    padding: 3vh 5vw;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: #360707;
+}
+
+header a {
+    text-decoration: none;
+}
+
+#nav-title {
+    color: #2a0909;
+    letter-spacing: 5px;
+}
+
+
+/* MAIN */
+
+main {
+    display: grid;
+}
+
+section {
+    height: 100vh;
+}
+
+a {
+    color: #360707;
+    text-decoration: none;
+}
+
+p {
+    color: white;
+}
+
+/* PORTADA */
+
+#portada {
+    position: relative;
+}
+
+h2 {
+    color: white;
+    font-weight: bold;
+}
+
+#viaja {
+    position: absolute;
+}
+
+#klm {
+    position: absolute;
+}
+
+/* VUELOS */
+
+#vuelos {
+    background-color: #171218;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.vuelos-subcat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 5px solid white;
+    background-size: cover;
+}
+
+#ny {
+    background-image: url(../images/Inicio/newyork.jpg);
+}
+
+#miami {
+    background-image: url(../images/Inicio/miami.jpg);
+}
+
+#madrid {
+    background-image: url(../images/Inicio/madrid.jpg);
+}
+
+#londres {
+    background-image: url(../images/Inicio/londres.jpg);
+}
+
+#tokio {
+    background-image: url(../images/Inicio/tokio.jpg);
+}
+
+#aruba {
+    background-image: url(../images/Inicio/aruba.jpg);
+}
+
+#vuelos a {
+    color: white;
+}
+
+.cat-text {
+    padding: 0vh 2vw;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+
+#estadias {
+    background-color: white;
+}
+
+#ofertas {
+    background-color: #360707;
+}
+
+#argentina {
+    background-color: #171218;
+}
+
+#contacto {
+    background-color: white;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 3vh 5vw;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+h5 {
+    text-align: end;
+    text-decoration: none;
+    color: #360707;
+    letter-spacing: 4px;
+}

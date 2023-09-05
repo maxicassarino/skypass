@@ -1,0 +1,135 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 550px) {
+    /* HEADER */
+    #nav {
+        display: none;
+    }
+    #nav-links {
+        display: none;
+    }
+    #nav-title {
+        font-size: 1.7em;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 551px) and (max-width: 1200px) {
+    /* HEADER */
+    #nav {
+        display: none;
+    }
+    #nav-links {
+        display: none;
+    }
+    #nav-title {
+        font-size: 2.5em;
+    }
+}
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1201px) {
+    body {
+        background-image: url(../images/Inicio/portada.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    /* HEADER */
+    header {
+        padding: 2vh 3vw;
+    }
+    #nav {
+        display: none;
+    }
+    #nav-links {
+        display: none;
+    }
+    #nav-title {
+        font-size: 2.5em;
+    }
+    /* MAIN */
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+    /* PORTADA */
+    #portada {
+        grid-column: 1 / span 2;
+        padding-left: 7vh;
+    }
+    h2 {
+        font-size: 5em;
+        letter-spacing: 3px;
+    }
+    #viaja {
+        top: 50vh;
+    }
+    #klm {
+        top: 62.5vh;
+    }
+    /* VUELOS */
+    #vuelos {
+        grid-column: 1 / span 2;
+        height: 150vh;
+    }
+    #vuelos-title {
+        padding-right: 12vh;
+        text-align: right;
+    }
+    .vuelos-cat {
+        height: 30%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .vuelos-cat a {
+        font-size: 2.3em;
+    }
+    .vuelos-subcat {
+        width: 50vh;
+    }
+    .cat-title::after {
+        content: "";
+        width: 0;
+        height: 2px;
+        background: white;
+        margin: auto;
+        display: block;
+    }
+    .cat-title:hover::after {
+        width: 100%;
+        transition: width 0.5s linear;
+    }
+    .cat-text {
+        padding: 0vh 2vw;
+        font-size: 1.4em;
+    }
+
+    
+    #estadias {
+        grid-column: 1 / span 2;
+    }
+    #contacto {
+        grid-column: 1 / span 2;
+    }
+    /* FOOTER */
+    footer {
+        padding: 2vh 3vw;
+    }
+}
