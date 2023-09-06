@@ -133,7 +133,7 @@
     form {
         width: 40%;
     }
-    input {
+    .inputs {
         width: 100%;
         margin: 3vh 0vw;
         padding: 1.5vh;
@@ -147,6 +147,9 @@
     .datos {
         width: 50%;
         padding: 0vh 12.5vh 20vh;
+    }
+    .datos h2 {
+        font-size: 4em;
     }
     p {
         font-size: 1.3em;
@@ -172,5 +175,9 @@
     /* FOOTER */
     footer {
         padding: 2vh 3vw;
+    }
+    h3 {
+        font-size: .8em;
+        letter-spacing: 4px;
     }
 }

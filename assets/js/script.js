@@ -20,76 +20,85 @@ const descripcionesLugar = [{Lugar: "New York", Descripción: "Una atmósfera co
 
 // ENTRADA DE DATOS
 
-alert(`Bienvenido! Inicie su consulta`);
-let eleccionDestino = prompt("Ingrese su destino de interés");
-let eleccionHotel = prompt("Ingrese el hotel deseado");
-let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
+let eleccionDestino;
+let eleccionHotel;
+let pasajeros;
+
+let boton = document.getElementById("boton")
+
+boton.onclick = () => {
+    alert(`Bienvenido! Inicie su consulta`);
+    eleccionDestino = prompt("Ingrese su destino de interés");
+    eleccionHotel = prompt("Ingrese el hotel deseado");
+    pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
+    
+    // MODIFICACION DE DATOS
+
+    const cantidad = vuelos.map(cantidad => cantidad.Pasajeros = pasajeros)
+    const valorTotal = vuelos.map(valorTotal => valorTotal.Total = (valorTotal.Pasaje * pasajeros) * 1.21)
+
+    // BUSQUEDA DE DATOS
+
+    const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
+    const buscarDescripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
 
 
-// MODIFICACION DE DATOS
+    // MENSAJES EN STORAGE
 
-const cantidad = vuelos.map(cantidad => cantidad.Pasajeros = pasajeros)
-const valorTotal = vuelos.map(valorTotal => valorTotal.Total = (valorTotal.Pasaje * pasajeros) * 1.21)
+    localStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
 
-// BUSQUEDA DE DATOS
+    localStorage.setItem(buscarDescripcionLugar.Lugar, buscarDescripcionLugar.Descripción)
 
-const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
-const buscarDescripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
+    for (const vuelo of vuelos) {
+        sessionStorage.setItem(`Valor: ${vuelo.Lugar}`, `${vuelo.Total} USD`)
+    }
 
 
-// MENSAJES EN STORAGE
+    // HTML DESTINO
 
-localStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
+    let fotoLugar = eleccionDestino
 
-localStorage.setItem(buscarDescripcionLugar.Lugar, buscarDescripcionLugar.Descripción)
+    if (eleccionDestino == "New York") {
+        fotoLugar = "ny"
+    }
 
-for (const vuelo of vuelos) {
-    sessionStorage.setItem(`Valor: ${vuelo.Lugar}`, `${vuelo.Total} USD`)
+    const main = document.getElementsByTagName("main")[0]
+
+
+    // HTML LUGAR
+
+    let section = document.createElement("section");
+    section.id = "destinoLugar"
+    section.innerHTML =    `<img src="assets/images/Inicio/ciudades/${fotoLugar}.jpg" alt="" class="destinoImg">
+                            <div class="datos">
+                                <h2>${eleccionDestino}</h2>
+                                <p>${buscarDescripcionLugar.Descripción}</p>
+                            </div>`;
+    main.appendChild(section);
+
+
+    // HTML HOTEL
+
+    let fotoHotel = eleccionHotel
+
+    if (eleccionHotel == "Hilton Hotel") {
+        fotoHotel = "Hilton"
+    }
+    else if (eleccionHotel == "Marriot International") {
+        fotoHotel = "Marriot"
+    }
+    else {
+        fotoHotel = "Huanzhu"
+    }
+
+    let section2 = document.createElement("section");
+    section2.id = "destinoHotel"
+    section2.innerHTML =    `<div class="datos">
+                                <h2>${eleccionHotel}</h2>
+                                <p>${buscarDescripcionLugar.Descripción}</p>
+                            </div>
+                            <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">`;
+    main.appendChild(section2);
 }
 
 
-// HTML DESTINO
-
-let fotoLugar = eleccionDestino
-
-if (eleccionDestino == "New York") {
-    fotoLugar = "ny"
-}
-
-const main = document.getElementsByTagName("main")[0]
-
-
-// HTML LUGAR
-
-let section = document.createElement("section");
-section.id = "destinoLugar"
-section.innerHTML =    `<img src="assets/images/Inicio/ciudades/${fotoLugar}.jpg" alt="" class="destinoImg">
-                        <div class="datos">
-                            <h2>${eleccionDestino}</h2>
-                            <p>${buscarDescripcionLugar.Descripción}</p>
-                        </div>`;
-main.appendChild(section);
-
-
-// HTML HOTEL
-
-let fotoHotel = eleccionHotel
-
-if (eleccionHotel == "Hilton Hotel") {
-    fotoHotel = "Hilton"
-}
-else if (eleccionHotel == "Marriot International") {
-    fotoHotel = "Marriot"
-}
-else {
-    fotoHotel = "Huanzhu"
-}
-
-let section2 = document.createElement("section");
-section2.id = "destinoHotel"
-section2.innerHTML =    `<div class="datos">
-                            <h2>${eleccionHotel}</h2>
-                            <p>${buscarDescripcionLugar.Descripción}</p>
-                        </div>
-                        <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">`;
-main.appendChild(section2);

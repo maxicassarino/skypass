@@ -171,12 +171,13 @@ input:focus::placeholder {
     transition: 1s;
 }
 
-#submit {
+button {
     background-color: #360707;
     color: white;
+    border: 1px solid white;
 }
 
-#submit:hover {
+button:hover {
     background-color: white;
     color: #360707;
     transition: 1s;
@@ -236,9 +237,8 @@ footer a {
     text-decoration: none;
 }
 
-h5 {
+h3 {
     text-align: end;
     text-decoration: none;
     color: #360707;
-    letter-spacing: 4px;
 }
