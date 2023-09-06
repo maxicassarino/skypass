@@ -34,8 +34,10 @@ boton.onclick = () => {
     
     // MODIFICACION DE DATOS
 
-    const cantidad = vuelos.map(cantidad => cantidad.Pasajeros = pasajeros)
-    const valorTotal = vuelos.map(valorTotal => valorTotal.Total = (valorTotal.Pasaje * pasajeros) * 1.21)
+    for (const vuelo of vuelos) {
+        vuelo.Pasajeros = pasajeros;
+        vuelo.Total = (vuelo.Pasaje * pasajeros) * 1.21;
+    }
 
     // BUSQUEDA DE DATOS
 
