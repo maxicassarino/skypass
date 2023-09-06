@@ -66,13 +66,8 @@
     #nav-title {
         font-size: 2.5em;
     }
-    /* MAIN */
-    main {
-        grid-template-columns: 1fr 1fr;
-    }
     /* PORTADA */
     #portada {
-        grid-column: 1 / span 2;
         padding-left: 7vh;
     }
     h2 {
@@ -87,12 +82,10 @@
     }
     /* VUELOS y HOTELES*/
     #vuelos {
-        grid-column: 1 / span 2;
-        height: 150vh;
+        height: 175vh;
     }
     #hoteles {
-        grid-column: 1 / span 2;
-        height: 95vh;
+        height: 125vh;
     }
     #vuelos-title {
         padding-right: 12vh;
@@ -129,16 +122,48 @@
         width: 100%;
         transition: width 0.5s linear;
     }
-
-
-
-
+    /* BUSCADOR */
     #buscador {
-        grid-column: 1 / span 2;
-        height: 50vh;
+        height: 75vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0vh 15vh;
     }
+    form {
+        width: 40%;
+    }
+    input {
+        width: 100%;
+        margin: 3vh 0vw;
+        padding: 1.5vh;
+        font-size: 1.1em;
+    }
+    /* DESTINO */
+    #destino {
+        height: 70vh;
+    }
+    #destino img {
+        width: 50%;
+        height: 90%;
+    }
+    #datos {
+        width: 50%;
+        padding-bottom: 12.5vh;
+    }
+    #listas {
+        width: 100%;
+    }
+    #listas li {
+        font-size: 1.3em;
+        padding: 3vh;
+    }
+
+
+
+
+
     #pack {
-        grid-column: 1 / span 2;
         height: 50vh;
     }
     /* FOOTER */

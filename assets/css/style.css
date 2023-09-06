@@ -37,10 +37,6 @@ header a {
 
 /* MAIN */
 
-main {
-    display: grid;
-}
-
 section {
     height: 100vh;
 }
@@ -110,9 +106,8 @@ a {
     text-decoration: none;
 }
 
-
 #ny {
-    background-image: url(../images/Inicio/ciudades/newyork.jpg);
+    background-image: url(../images/Inicio/ciudades/ny.jpg);
 }
 
 #miami {
@@ -148,20 +143,74 @@ a {
 }
 
 
-
-
+/* BUSCADOR */
 
 #buscador {
     background-color: #171218;
 }
 
-#destino {
+input {
     background-color: #360707;
+    color: white;
+    border: 1px solid white;
 }
 
-#estadia {
-    background-color: #171218;
+input::placeholder {
+    color: white;
 }
+
+input:focus {
+    background-color: #171218;
+    color: white;
+    transition: 1s;
+}
+
+input:focus::placeholder {
+    color: white;
+    transition: 1s;
+}
+
+#submit {
+    background-color: #360707;
+    color: white;
+}
+
+#submit:hover {
+    background-color: white;
+    color: #360707;
+    transition: 1s;
+}
+
+
+/* DESTINO */
+
+#destino {
+    display: flex;
+    justify-content: space-between;
+    background-color: #171218;
+    color: white;
+}
+
+#datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#listas {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#listas ul {
+    list-style: none;
+}
+
+
+
+
+
 
 #pack {
     background-color: #360707;
