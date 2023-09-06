@@ -140,23 +140,26 @@
         font-size: 1.1em;
     }
     /* DESTINO */
-    #destino {
-        height: 70vh;
-    }
-    #destino img {
-        width: 50%;
+    .destinoImg {
+        width: 45%;
         height: 90%;
     }
-    #datos {
+    .datos {
         width: 50%;
-        padding-bottom: 12.5vh;
+        padding: 0vh 12.5vh 20vh;
     }
-    #listas {
-        width: 100%;
-    }
-    #listas li {
+    p {
         font-size: 1.3em;
-        padding: 3vh;
+        letter-spacing: 1px;
+    }
+    /* DESTINO LUGAR */
+    #destinoLugar {
+        height: 70vh;
+    }
+    /* DESTINO HTEL */
+    #destinoHotel {
+        padding-top: 20vh;
+        height: 90vh;
     }
 
 

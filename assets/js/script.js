@@ -1,3 +1,5 @@
+localStorage.clear()
+
 // OJBETO VUELOS
 
 const vuelos = [{Lugar: "New York", Pasaje: 1095, Pasajeros: 1, Recargo: "21%", Total: 0},
@@ -8,11 +10,19 @@ const vuelos = [{Lugar: "New York", Pasaje: 1095, Pasajeros: 1, Recargo: "21%", 
                 {Lugar: "Tokio", Pasaje: 2200, Pasajeros: 1, Recargo: "21%", Total: 0}
 ]
 
+const descripcionesLugar = [{Lugar: "New York", Descripción: "Una atmósfera cosmopolita envuelve a sus más de 8 millones de habitantes y turistas que transitan por sus calles día y noche. Entre rascacielos emblemáticos y parques que te invitan a bajar el ritmo, el destino está lleno de experiencias que son verdaderos descubrimientos multiculturales."},
+                        {Lugar: "Madrid", Descripción: "La ciudad del encanto y la elegancia. Su arquitectura y espacios desbordan personalidad. Conocé su Plaza Mayor y el Palacio Real. La comida en España es un imperdible, desde su desayuno hasta la cena van a ser una fiesta en tu paladar."},
+                        {Lugar: "Miami", Descripción: "Uno de los destinos más populares para pasar unas vacaciones inolvidables. Con playas de aguas cálidas y cristalinas, Miami tiene muchas atracciones turísticas para sus visitantes, tanto locales como extranjeros."},
+                        {Lugar: "Londres", Descripción: "La capital inglesa con mucha historia y tradiciones monárquicas. Es una de las ciudades más visitadas del mundo, un destino multirracial que cuenta con varios museos, bibliotecas, universidades, galerías de arte y eventos deportivos."},
+                        {Lugar: "Aruba", Descripción: "Conocida como la isla de la felicidad, llena de colores y de agua transparente, Aruba es el destino para disfrutar de la playa. Descubrí Palm Beach y sus deportes acuáticos, podés practicar windsurf o kitesurf o solo hacer la plancha en el mar."},
+                        {Lugar: "Tokio", Descripción: "Es una metrópolis que combina la tradición japonesa con la modernidad. La ciudad es conocida por su impresionante horizonte de rascacielos y, a la vez, por sus santuarios históricos. La vida nocturna es animada y diversa, con una abundancia de restaurantes, bares y discotecas"}
+]
 
 // ENTRADA DE DATOS
 
 alert(`Bienvenido! Inicie su consulta`);
-let eleccion = prompt("Ingrese su destino de interés");
+let eleccionDestino = prompt("Ingrese su destino de interés");
+let eleccionHotel = prompt("Ingrese el hotel deseado");
 let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
 
 
@@ -20,48 +30,66 @@ let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
 
 const cantidad = vuelos.map(cantidad => cantidad.Pasajeros = pasajeros)
 const valorTotal = vuelos.map(valorTotal => valorTotal.Total = (valorTotal.Pasaje * pasajeros) * 1.21)
-const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccion)
 
-console.log(buscarVuelo);
+// BUSQUEDA DE DATOS
+
+const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
+const buscarDescripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
 
 
 // MENSAJES EN STORAGE
 
 localStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
 
-localStorage.setItem("Vuelo Seleccionado", JSON.stringify(buscarVuelo))
+localStorage.setItem(buscarDescripcionLugar.Lugar, buscarDescripcionLugar.Descripción)
 
 for (const vuelo of vuelos) {
-    sessionStorage.setItem(vuelo.Lugar, vuelo.Total)
+    sessionStorage.setItem(`Valor: ${vuelo.Lugar}`, `${vuelo.Total} USD`)
 }
 
 
-// HTML DESTINO ELEGIDO
+// HTML DESTINO
 
-let foto = eleccion
+let fotoLugar = eleccionDestino
 
-if (eleccion == "New York") {
-    foto = "ny"
+if (eleccionDestino == "New York") {
+    fotoLugar = "ny"
 }
 
 const main = document.getElementsByTagName("main")[0]
 
+
+// HTML LUGAR
+
 let section = document.createElement("section");
-section.id = "destino"
-section.innerHTML =    `<img src="assets/images/Inicio/ciudades/${foto}.jpg" alt="">
-                        <div id="datos">
-                            <h2>${eleccion}</h2>
-                            <div id="listas">
-                                <ul id="lista">
-                                    <li>Pasaje</li>
-                                    <li>Impuestos</li>
-                                    <li>Total</li>
-                                </ul>
-                                <ul id="lista2">
-                                    <li>${buscarVuelo.Pasaje} USD</li>
-                                    <li>21%</li>
-                                    <li>${buscarVuelo.Total} USD</li>
-                                </ul>
-                            </div>
+section.id = "destinoLugar"
+section.innerHTML =    `<img src="assets/images/Inicio/ciudades/${fotoLugar}.jpg" alt="" class="destinoImg">
+                        <div class="datos">
+                            <h2>${eleccionDestino}</h2>
+                            <p>${buscarDescripcionLugar.Descripción}</p>
                         </div>`;
 main.appendChild(section);
+
+
+// HTML HOTEL
+
+let fotoHotel = eleccionHotel
+
+if (eleccionHotel == "Hilton Hotel") {
+    fotoHotel = "Hilton"
+}
+else if (eleccionHotel == "Marriot International") {
+    fotoHotel = "Marriot"
+}
+else {
+    fotoHotel = "Huanzhu"
+}
+
+let section2 = document.createElement("section");
+section2.id = "destinoHotel"
+section2.innerHTML =    `<div class="datos">
+                            <h2>${eleccionHotel}</h2>
+                            <p>${buscarDescripcionLugar.Descripción}</p>
+                        </div>
+                        <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">`;
+main.appendChild(section2);

@@ -13,6 +13,7 @@ body {
 }
 
 
+
 /* HEADER */
 
 header {
@@ -35,6 +36,7 @@ header a {
 }
 
 
+
 /* MAIN */
 
 section {
@@ -45,9 +47,6 @@ header a {
     color: #360707;
 }
 
-p {
-    color: white;
-}
 
 
 /* PORTADA */
@@ -68,6 +67,7 @@ h2 {
 #klm {
     position: absolute;
 }
+
 
 
 /* VUELOS y HOTELES*/
@@ -131,16 +131,17 @@ a {
 }
 
 #hotelny {
-    background-image: url(../images/Inicio/ciudades/hotel1ny.jpg);
+    background-image: url(../images/Inicio/ciudades/Hilton.jpg);
 }
 
 #hotelmiami {
-    background-image: url(../images/Inicio/ciudades/hotel1miami.jpg);
+    background-image: url(../images/Inicio/ciudades/Marriot.jpg);
 }
 
 #hoteltokio {
-    background-image: url(../images/Inicio/ciudades/hotel1tokio.jpg);
+    background-image: url(../images/Inicio/ciudades/Huanzhu.jpg);
 }
+
 
 
 /* BUSCADOR */
@@ -182,30 +183,39 @@ input:focus::placeholder {
 }
 
 
+
 /* DESTINO */
 
-#destino {
-    display: flex;
-    justify-content: space-between;
-    background-color: #171218;
-    color: white;
-}
-
-#datos {
+.datos {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-#listas {
-    display: flex;
-    justify-content: space-evenly;
+p {
+    text-align: justify;
 }
 
-#listas ul {
-    list-style: none;
+/* DESTINO LUGAR*/
+
+#destinoLugar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #171218;
+    color: white;
 }
+
+/* DESTINO HOTEL*/
+
+#destinoHotel {
+    display: flex;
+    justify-content: space-between;
+    background-color: #360707;
+    color: white;
+}
+
+
 
 
 
