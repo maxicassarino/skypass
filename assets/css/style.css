@@ -178,6 +178,7 @@ input:focus::placeholder {
 }
 
 #boton:hover {
+    cursor: pointer;
     background-color: white;
     color: #360707;
     transition: 1s;

@@ -1,6 +1,8 @@
 localStorage.clear()
 
-// OJBETO VUELOS
+localStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
+
+// OJBETOS
 
 const vuelos = [{Lugar: "New York", Pasaje: 1095, Pasajeros: 1, Recargo: "21%", Total: 0},
                 {Lugar: "Madrid", Pasaje: 1500, Pasajeros: 1, Recargo: "21%", Total: 0},
@@ -18,57 +20,26 @@ const descripcionesLugar = [{Lugar: "New York", Descripción: "Una atmósfera co
                         {Lugar: "Tokio", Descripción: "Es una metrópolis que combina la tradición japonesa con la modernidad. La ciudad es conocida por su impresionante horizonte de rascacielos y, a la vez, por sus santuarios históricos. La vida nocturna es animada y diversa, con una abundancia de restaurantes, bares y discotecas"}
 ]
 
-// ENTRADA DE DATOS
 
-let eleccionDestino;
-let eleccionHotel;
-let pasajeros;
 
-let boton = document.getElementById("boton")
+// FUNCIONES
 
-boton.onclick = () => {
-    alert(`Bienvenido! Inicie su consulta`);
-    eleccionDestino = prompt("Ingrese su destino de interés");
-    eleccionHotel = prompt("Ingrese el hotel deseado");
-    pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
-    
-    // MODIFICACION DE DATOS
+// MOFIFICAR DATOS
 
+modificarDatos = (pasajeros) => {
     for (const vuelo of vuelos) {
         vuelo.Pasajeros = pasajeros;
         vuelo.Total = (vuelo.Pasaje * pasajeros) * 1.21;
     }
+}
 
-    // BUSQUEDA DE DATOS
+// HTML LUGAR
 
-    const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
-    const buscarDescripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
-
-
-    // MENSAJES EN STORAGE
-
-    localStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
-
-    localStorage.setItem(buscarDescripcionLugar.Lugar, buscarDescripcionLugar.Descripción)
-
-    for (const vuelo of vuelos) {
-        sessionStorage.setItem(`Valor: ${vuelo.Lugar}`, `${vuelo.Total} USD`)
-    }
-
-
-    // HTML DESTINO
-
+htmlLugar = (main, eleccionDestino, buscarDescripcionLugar) => {
     let fotoLugar = eleccionDestino
-
     if (eleccionDestino == "New York") {
         fotoLugar = "ny"
     }
-
-    const main = document.getElementsByTagName("main")[0]
-
-
-    // HTML LUGAR
-
     let section = document.createElement("section");
     section.id = "destinoLugar"
     section.innerHTML =    `<img src="assets/images/Inicio/ciudades/${fotoLugar}.jpg" alt="" class="destinoImg">
@@ -77,12 +48,12 @@ boton.onclick = () => {
                                 <p>${buscarDescripcionLugar.Descripción}</p>
                             </div>`;
     main.appendChild(section);
+}
 
+// HTML HOTEL
 
-    // HTML HOTEL
-
+htmlHotel = (main, eleccionHotel, buscarDescripcionLugar) => {
     let fotoHotel = eleccionHotel
-
     if (eleccionHotel == "Hilton Hotel") {
         fotoHotel = "Hilton"
     }
@@ -92,7 +63,6 @@ boton.onclick = () => {
     else {
         fotoHotel = "Huanzhu"
     }
-
     let section2 = document.createElement("section");
     section2.id = "destinoHotel"
     section2.innerHTML =    `<div class="datos">
@@ -104,3 +74,34 @@ boton.onclick = () => {
 }
 
 
+
+
+
+// PROGRAMA PRINCIPAL
+
+// BOTON BUSCADOR
+
+let boton = document.getElementById("boton")
+
+boton.onclick = () => {
+    alert(`Bienvenido! Inicie su consulta`);
+    let eleccionDestino = prompt("Ingrese su destino de interés");
+    let eleccionHotel = prompt("Ingrese el hotel deseado");
+    let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
+
+    // MODIFICACION DE DATOS
+    modificarDatos(pasajeros)
+
+    // BUSQUEDA DE DATOS
+    const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
+    const buscarDescripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
+
+    // HTML DESTINO
+
+    const main = document.getElementsByTagName("main")[0]
+    htmlLugar(main, eleccionDestino, buscarDescripcionLugar)
+    htmlHotel(main, eleccionHotel, buscarDescripcionLugar)
+}
+
+
+// 27:00
