@@ -79,14 +79,26 @@ htmlHotel = (destino, eleccionHotel, buscarDescripcionLugar) => {
 
 // PROGRAMA PRINCIPAL
 
+// INFORMACION INPUTS
+
+let lugar = document.getElementById("inputDestino")
+let hotel = document.getElementById("inputHotel")
+
+lugar.onchange = (e) => {
+    eleccionDestino = e.target.value;
+}
+
+hotel.onchange = (e) => {
+    eleccionHotel = e.target.value;
+}
+
+
 // BOTON BUSCADOR
 
 let boton = document.getElementById("boton")
+let destino = document.getElementById("destino");
 
 boton.onclick = () => {
-    alert(`Bienvenido! Inicie su consulta`);
-    let eleccionDestino = prompt("Ingrese su destino de interés");
-    let eleccionHotel = prompt("Ingrese el hotel deseado");
     let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
 
     // MODIFICACION DE DATOS
@@ -98,7 +110,6 @@ boton.onclick = () => {
 
     // HTML DESTINO
 
-    const destino = document.getElementById("destino");
     destino.innerHTML = "";
     htmlLugar(destino, eleccionDestino, buscarDescripcionLugar)
     htmlHotel(destino, eleccionHotel, buscarDescripcionLugar)

@@ -239,11 +239,10 @@ footer {
 }
 
 footer a {
+    color: #360707;
     text-decoration: none;
 }
 
 h3 {
     text-align: end;
-    text-decoration: none;
-    color: #360707;
 }
