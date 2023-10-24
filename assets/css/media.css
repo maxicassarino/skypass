@@ -140,6 +140,9 @@
         font-size: 1.1em;
     }
     /* DESTINO */
+    #destino {
+        height: auto;
+    }
     .destinoImg {
         width: 45%;
         height: 90%;

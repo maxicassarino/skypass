@@ -35,7 +35,7 @@ modificarDatos = (pasajeros) => {
 
 // HTML LUGAR
 
-htmlLugar = (main, eleccionDestino, buscarDescripcionLugar) => {
+htmlLugar = (destino, eleccionDestino, buscarDescripcionLugar) => {
     let fotoLugar = eleccionDestino
     if (eleccionDestino == "New York") {
         fotoLugar = "ny"
@@ -47,21 +47,21 @@ htmlLugar = (main, eleccionDestino, buscarDescripcionLugar) => {
                                 <h2>${eleccionDestino}</h2>
                                 <p>${buscarDescripcionLugar.Descripción}</p>
                             </div>`;
-    main.appendChild(section);
+    destino.appendChild(section)
 }
 
 // HTML HOTEL
 
-htmlHotel = (main, eleccionHotel, buscarDescripcionLugar) => {
+htmlHotel = (destino, eleccionHotel, buscarDescripcionLugar) => {
     let fotoHotel = eleccionHotel
-    if (eleccionHotel == "Hilton Hotel") {
-        fotoHotel = "Hilton"
+    if (eleccionHotel == "Huanzhu Palace") {
+        fotoHotel = "Huanzhu"
     }
     else if (eleccionHotel == "Marriot International") {
         fotoHotel = "Marriot"
     }
     else {
-        fotoHotel = "Huanzhu"
+        fotoHotel = "Hilton"
     }
     let section2 = document.createElement("section");
     section2.id = "destinoHotel"
@@ -70,7 +70,7 @@ htmlHotel = (main, eleccionHotel, buscarDescripcionLugar) => {
                                 <p>${buscarDescripcionLugar.Descripción}</p>
                             </div>
                             <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">`;
-    main.appendChild(section2);
+    destino.appendChild(section2);
 }
 
 
@@ -98,10 +98,9 @@ boton.onclick = () => {
 
     // HTML DESTINO
 
-    const main = document.getElementsByTagName("main")[0]
-    htmlLugar(main, eleccionDestino, buscarDescripcionLugar)
-    htmlHotel(main, eleccionHotel, buscarDescripcionLugar)
+    const destino = document.getElementById("destino");
+    destino.innerHTML = "";
+    htmlLugar(destino, eleccionDestino, buscarDescripcionLugar)
+    htmlHotel(destino, eleccionHotel, buscarDescripcionLugar)
 }
 
-
-// 27:00

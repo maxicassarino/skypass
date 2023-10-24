@@ -199,6 +199,10 @@ p {
     text-align: justify;
 }
 
+.destinoImg {
+    border: 5px solid white;
+}
+
 /* DESTINO LUGAR*/
 
 #destinoLugar {
