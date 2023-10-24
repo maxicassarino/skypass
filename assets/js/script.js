@@ -79,26 +79,17 @@ htmlHotel = (destino, eleccionHotel, buscarDescripcionLugar) => {
 
 // PROGRAMA PRINCIPAL
 
-// INFORMACION INPUTS
-
-let lugar = document.getElementById("inputDestino")
-let hotel = document.getElementById("inputHotel")
-
-lugar.onchange = (e) => {
-    eleccionDestino = e.target.value;
-}
-
-hotel.onchange = (e) => {
-    eleccionHotel = e.target.value;
-}
-
-
 // BOTON BUSCADOR
 
 let boton = document.getElementById("boton")
 let destino = document.getElementById("destino");
 
-boton.onclick = () => {
+let form = document.getElementById("form");
+
+form.onsubmit = (e) => {
+    e.preventDefault();
+    eleccionDestino = e.target.children[0].value;
+    eleccionHotel = e.target.children[1].value;
     let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
 
     // MODIFICACION DE DATOS
@@ -114,4 +105,3 @@ boton.onclick = () => {
     htmlLugar(destino, eleccionDestino, buscarDescripcionLugar)
     htmlHotel(destino, eleccionHotel, buscarDescripcionLugar)
 }
-
