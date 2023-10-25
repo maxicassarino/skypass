@@ -4,12 +4,12 @@ localStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
 
 // OJBETOS
 
-const vuelos = [{Lugar: "New York", Pasaje: 1095, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {Lugar: "Madrid", Pasaje: 1500, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {Lugar: "Miami", Pasaje: 950, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {Lugar: "Londres", Pasaje: 1750, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {Lugar: "Aruba", Pasaje: 800, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {Lugar: "Tokio", Pasaje: 2200, Pasajeros: 1, Recargo: "21%", Total: 0}
+const vuelos = [{ID: "v1", Lugar: "New York", Pasaje: 1095, Pasajeros: 1, Recargo: "21%", Total: 0},
+                {ID: "v2", Lugar: "Madrid", Pasaje: 1500, Pasajeros: 1, Recargo: "21%", Total: 0},
+                {ID: "v3", Lugar: "Miami", Pasaje: 950, Pasajeros: 1, Recargo: "21%", Total: 0},
+                {ID: "v4", Lugar: "Londres", Pasaje: 1750, Pasajeros: 1, Recargo: "21%", Total: 0},
+                {ID: "v5", Lugar: "Aruba", Pasaje: 800, Pasajeros: 1, Recargo: "21%", Total: 0},
+                {ID: "v6", Lugar: "Tokio", Pasaje: 2200, Pasajeros: 1, Recargo: "21%", Total: 0}
 ]
 
 const descripcionesLugar = [{Lugar: "New York", Descripción: "Una atmósfera cosmopolita envuelve a sus más de 8 millones de habitantes y turistas que transitan por sus calles día y noche. Entre rascacielos emblemáticos y parques que te invitan a bajar el ritmo, el destino está lleno de experiencias que son verdaderos descubrimientos multiculturales."},
@@ -31,39 +31,36 @@ const hoteles = ["Hilton Hotel", "Marriot International", "Huanzhu Palace"]
 let posicionDestinos = null
 let posicionHoteles = null
 
-let destinosSugeridos = document.getElementById("destinosSugeridos")
-let hotelesSugeridos = document.getElementById("hotelesSugeridos")
+// Abrir Sugeridos
 
-// Agregar Sugeridos
-
-const insertarDSugeridos = () => {
-    destinosSugeridos.style.display = "block";
+const agregarDSugeridos = () => {
+    $("#destinosSugeridos").css("display", "block");
     for (const destino of destinos) {
-        let li = document.createElement("li");
-        li.innerHTML = destino;
-        destinosSugeridos.append(li)
+        $("#destinosSugeridos").append(`
+            <li>${destino}</li>
+        `)
     }
 }
 
-const insertarHSugeridos = () => {
-    hotelesSugeridos.style.display = "block";
+const agregarHSugeridos = () => {
+    $("#hotelesSugeridos").css("display", "block");
     for (const hotel of hoteles) {
-        let li = document.createElement("li");
-        li.innerHTML = hotel;
-        hotelesSugeridos.append(li)
+        $("#hotelesSugeridos").append(`
+            <li>${hotel}</li>
+        `)
     }
 }
 
-// Remover Sugeridos
+// Cerrar Sugeridos
 
 const removerDSugeridos = () => {
-    destinosSugeridos.style.display = "none";
-    destinosSugeridos.innerHTML = ""
+    $("#destinosSugeridos").css("display", "none");
+    $("#destinosSugeridos").html("")
 }
 
 const removerHSugeridos = () => {
-    hotelesSugeridos.style.display = "none";
-    hotelesSugeridos.innerHTML = ""
+    $("#hotelesSugeridos").css("display", "none");
+    $("#hotelesSugeridos").html("")
 }
 
 
@@ -79,25 +76,26 @@ modificarDatos = (pasajeros) => {
 
 // HTML LUGAR
 
-htmlLugar = (destino, eleccionDestino, buscarDescripcionLugar) => {
+htmlLugar = (_destino, eleccionDestino, descripcionLugar) => {
     let fotoLugar = eleccionDestino
     if (eleccionDestino == "New York") {
         fotoLugar = "ny"
     }
-    let section = document.createElement("section");
-    section.id = "destinoLugar"
-    section.innerHTML =    `<img src="assets/images/Inicio/ciudades/${fotoLugar}.jpg" alt="" class="destinoImg">
-                            <div class="datos">
-                                <h2>${eleccionDestino}</h2>
-                                <p>${buscarDescripcionLugar.Descripción}</p>
-                            </div>`;
-    destino.appendChild(section)
+    $("#destino").append(`
+            <section id= "destinoLugar">
+                <img src="assets/images/Inicio/ciudades/${fotoLugar}.jpg" alt="" class="destinoImg">
+                <div class="datos">
+                    <h2>${eleccionDestino}</h2>
+                    <p>${descripcionLugar.Descripción}</p>
+                </div>
+            </section>
+        `)
 }
 
 
 // HTML HOTEL
 
-htmlHotel = (destino, eleccionHotel, buscarDescripcionLugar) => {
+htmlHotel = (_destino, eleccionHotel, descripcionLugar) => {
     let fotoHotel = eleccionHotel
     if (eleccionHotel == "Huanzhu Palace") {
         fotoHotel = "Huanzhu"
@@ -108,38 +106,44 @@ htmlHotel = (destino, eleccionHotel, buscarDescripcionLugar) => {
     else {
         fotoHotel = "Hilton"
     }
-    let section2 = document.createElement("section");
-    section2.id = "destinoHotel"
-    section2.innerHTML =    `<div class="datos">
-                                <h2>${eleccionHotel}</h2>
-                                <p>${buscarDescripcionLugar.Descripción}</p>
-                            </div>
-                            <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">`;
-    destino.appendChild(section2);
+    $("#destino").append(`
+            <section id= "destinoHotel">
+                <div class="datos">
+                    <h2>${eleccionHotel}</h2>
+                    <p>${descripcionLugar.Descripción}</p>
+                </div>
+                <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">
+            </section>
+        `)
 }
-
-
 
 
 
 // PROGRAMA PRINCIPAL
 
+// SELECCIONES
+
+$(".d").on("click", function() {
+    const destinoSeleccionado = $(this).find(".cat-title").text();
+    $("#inputDestino").attr("value", destinoSeleccionado);
+});
+
+$(".h").on("click", function() {
+    const hotelSeleccionado = $(this).find(".cat-title").text();
+    $("#inputHotel").attr("value", hotelSeleccionado);
+});
+
 // SUGERIDOS
 
-let inputDestino = document.getElementById("inputDestino");
-let inputHotel = document.getElementById("inputHotel");
+$("#inputDestino").on("focus", () => agregarDSugeridos());
+$("#inputHotel").on("focus", () => agregarHSugeridos());
 
-// Agregar y remover sugeridos
-
-inputDestino.onfocus = () => insertarDSugeridos();
-inputHotel.onfocus = () => insertarHSugeridos();
-
-inputDestino.onblur = () => removerDSugeridos();
-inputHotel.onblur = () => removerHSugeridos();
+$("#inputDestino").on("blur", () => removerDSugeridos());
+$("#inputHotel").on("blur", () => removerHSugeridos());
 
 // Navegar Destinos Sugeridos
 
-inputDestino.onkeydown = (e) => {
+$("#inputDestino").on("keydown", (e) => {
     if (e.keyCode == '38') {
         if (posicionDestinos == 0 || posicionDestinos === null){
             posicionDestinos = 5;
@@ -154,11 +158,11 @@ inputDestino.onkeydown = (e) => {
         else posicionDestinos ++;
         inputDestino.value = destinos[posicionDestinos];
     }
-}
+})
 
 // Navegar Hoteles Sugeridos
 
-inputHotel.onkeydown = (e) => {
+$("#inputHotel").on("keydown", (e) => {
     if (e.keyCode == '38') {
         if (posicionHoteles == 0 || posicionHoteles === null){
             posicionHoteles = 2;
@@ -173,15 +177,12 @@ inputHotel.onkeydown = (e) => {
         else posicionHoteles ++;
         inputHotel.value = hoteles[posicionHoteles];
     }
-}
+})
 
 
 // BUSCADOR
 
-let form = document.getElementById("form");
-let destino = document.getElementById("destino");
-
-form.onsubmit = (e) => {
+$("form").on("submit", (e) => {
     e.preventDefault();
     eleccionDestino = e.target.children[0].value;
     eleccionHotel = e.target.children[2].value;
@@ -192,11 +193,10 @@ form.onsubmit = (e) => {
 
     // BUSQUEDA DE DATOS
     // const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
-    const buscarDescripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
+    const descripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
 
     // HTML DESTINO
-
-    destino.innerHTML = "";
-    htmlLugar(destino, eleccionDestino, buscarDescripcionLugar)
-    htmlHotel(destino, eleccionHotel, buscarDescripcionLugar)
-}
+    $("#destino").html("")
+    htmlLugar(destino, eleccionDestino, descripcionLugar)
+    htmlHotel(destino, eleccionHotel, descripcionLugar)
+})

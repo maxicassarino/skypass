@@ -106,39 +106,39 @@ a {
     text-decoration: none;
 }
 
-#ny {
+#v1 {
     background-image: url(../images/Inicio/ciudades/ny.jpg);
 }
 
-#miami {
-    background-image: url(../images/Inicio/ciudades/miami.jpg);
-}
-
-#madrid {
+#v2 {
     background-image: url(../images/Inicio/ciudades/madrid.jpg);
 }
 
-#londres {
+#v3 {
+    background-image: url(../images/Inicio/ciudades/miami.jpg);
+}
+
+#v4 {
     background-image: url(../images/Inicio/ciudades/londres.jpg);
 }
 
-#tokio {
-    background-image: url(../images/Inicio/ciudades/tokio.jpg);
-}
-
-#aruba {
+#v5 {
     background-image: url(../images/Inicio/ciudades/aruba.jpg);
 }
 
-#hotelny {
+#v6 {
+    background-image: url(../images/Inicio/ciudades/tokio.jpg);
+}
+
+#h1 {
     background-image: url(../images/Inicio/ciudades/Hilton.jpg);
 }
 
-#hotelmiami {
+#h2 {
     background-image: url(../images/Inicio/ciudades/Marriot.jpg);
 }
 
-#hoteltokio {
+#h3 {
     background-image: url(../images/Inicio/ciudades/Huanzhu.jpg);
 }
 
