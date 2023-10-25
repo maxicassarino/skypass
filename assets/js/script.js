@@ -24,6 +24,49 @@ const descripcionesLugar = [{Lugar: "New York", Descripción: "Una atmósfera co
 
 // FUNCIONES
 
+// SUGERIDOS
+
+const destinos = ["New York", "Madrid", "Miami", "Londres", "Aruba", "Tokio"]
+const hoteles = ["Hilton Hotel", "Marriot International", "Huanzhu Palace"]
+let posicionDestinos = null
+let posicionHoteles = null
+
+let destinosSugeridos = document.getElementById("destinosSugeridos")
+let hotelesSugeridos = document.getElementById("hotelesSugeridos")
+
+// Agregar Sugeridos
+
+const insertarDSugeridos = () => {
+    destinosSugeridos.style.display = "block";
+    for (const destino of destinos) {
+        let li = document.createElement("li");
+        li.innerHTML = destino;
+        destinosSugeridos.append(li)
+    }
+}
+
+const insertarHSugeridos = () => {
+    hotelesSugeridos.style.display = "block";
+    for (const hotel of hoteles) {
+        let li = document.createElement("li");
+        li.innerHTML = hotel;
+        hotelesSugeridos.append(li)
+    }
+}
+
+// Remover Sugeridos
+
+const removerDSugeridos = () => {
+    destinosSugeridos.style.display = "none";
+    destinosSugeridos.innerHTML = ""
+}
+
+const removerHSugeridos = () => {
+    hotelesSugeridos.style.display = "none";
+    hotelesSugeridos.innerHTML = ""
+}
+
+
 // MOFIFICAR DATOS
 
 modificarDatos = (pasajeros) => {
@@ -32,6 +75,7 @@ modificarDatos = (pasajeros) => {
         vuelo.Total = (vuelo.Pasaje * pasajeros) * 1.21;
     }
 }
+
 
 // HTML LUGAR
 
@@ -49,6 +93,7 @@ htmlLugar = (destino, eleccionDestino, buscarDescripcionLugar) => {
                             </div>`;
     destino.appendChild(section)
 }
+
 
 // HTML HOTEL
 
@@ -79,24 +124,74 @@ htmlHotel = (destino, eleccionHotel, buscarDescripcionLugar) => {
 
 // PROGRAMA PRINCIPAL
 
-// BOTON BUSCADOR
+// SUGERIDOS
 
-let boton = document.getElementById("boton")
-let destino = document.getElementById("destino");
+let inputDestino = document.getElementById("inputDestino");
+let inputHotel = document.getElementById("inputHotel");
+
+// Agregar y remover sugeridos
+
+inputDestino.onfocus = () => insertarDSugeridos();
+inputHotel.onfocus = () => insertarHSugeridos();
+
+inputDestino.onblur = () => removerDSugeridos();
+inputHotel.onblur = () => removerHSugeridos();
+
+// Navegar Destinos Sugeridos
+
+inputDestino.onkeydown = (e) => {
+    if (e.keyCode == '38') {
+        if (posicionDestinos == 0 || posicionDestinos === null){
+            posicionDestinos = 5;
+        }
+        else posicionDestinos --;
+        inputDestino.value = destinos[posicionDestinos];
+    }
+    else if (e.keyCode == '40') {
+        if (posicionDestinos == 5 || posicionDestinos === null) {
+            posicionDestinos = 0;
+        }
+        else posicionDestinos ++;
+        inputDestino.value = destinos[posicionDestinos];
+    }
+}
+
+// Navegar Hoteles Sugeridos
+
+inputHotel.onkeydown = (e) => {
+    if (e.keyCode == '38') {
+        if (posicionHoteles == 0 || posicionHoteles === null){
+            posicionHoteles = 2;
+        }
+        else posicionHoteles --;
+        inputHotel.value = hoteles[posicionHoteles];
+    }
+    else if (e.keyCode == '40') {
+        if (posicionHoteles == 2 || posicionHoteles === null) {
+            posicionHoteles = 0;
+        }
+        else posicionHoteles ++;
+        inputHotel.value = hoteles[posicionHoteles];
+    }
+}
+
+
+// BUSCADOR
 
 let form = document.getElementById("form");
+let destino = document.getElementById("destino");
 
 form.onsubmit = (e) => {
     e.preventDefault();
     eleccionDestino = e.target.children[0].value;
-    eleccionHotel = e.target.children[1].value;
-    let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
+    eleccionHotel = e.target.children[2].value;
+    // let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
 
     // MODIFICACION DE DATOS
-    modificarDatos(pasajeros)
+    // modificarDatos(pasajeros)
 
     // BUSQUEDA DE DATOS
-    const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
+    // const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
     const buscarDescripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
 
     // HTML DESTINO

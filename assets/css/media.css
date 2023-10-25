@@ -131,11 +131,18 @@
         padding: 0vh 15vh;
     }
     form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 40%;
         width: 40%;
     }
     .inputs {
         width: 100%;
-        margin: 3vh 0vw;
+        padding: 1.5vh;
+        font-size: 1.1em;
+    }
+    .sugeridos li {
         padding: 1.5vh;
         font-size: 1.1em;
     }

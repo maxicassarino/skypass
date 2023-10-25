@@ -184,6 +184,21 @@ input:focus::placeholder {
     transition: 1s;
 }
 
+.contenedorSugeridos {
+    position: relative;
+}
+
+.sugeridos {
+    position: absolute;
+    top: 100%; 
+    width: 100%;
+    background-color: #171218;
+    color: white;
+    border: 1px solid white;
+    list-style: none;
+    display: none;
+}
+
 
 
 /* DESTINO */
