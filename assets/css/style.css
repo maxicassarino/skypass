@@ -1,6 +1,7 @@
 body {
     font-family: 'Noto Sans', sans-serif;
     animation: opacity 2.5s ;
+    color: white;
 }
 
 @keyframes opacity {
@@ -53,11 +54,6 @@ header a {
 
 #portada {
     position: relative;
-}
-
-h2 {
-    color: white;
-    font-weight: bold;
 }
 
 #viaja {
@@ -171,13 +167,12 @@ input:focus::placeholder {
     transition: 1s;
 }
 
-#boton {
+.boton {
     background-color: #360707;
-    color: white;
     border: 1px solid white;
 }
 
-#boton:hover {
+.boton:hover {
     cursor: pointer;
     background-color: white;
     color: #360707;
@@ -193,7 +188,6 @@ input:focus::placeholder {
     top: 100%; 
     width: 100%;
     background-color: #171218;
-    color: white;
     border: 1px solid white;
     list-style: none;
     display: none;
@@ -206,8 +200,12 @@ input:focus::placeholder {
 .datos {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+h3 {
+    text-align: center;
 }
 
 p {
@@ -224,7 +222,6 @@ p {
     display: flex;
     justify-content: space-between;
     background-color: #171218;
-    color: white;
 }
 
 /* DESTINO HOTEL*/
@@ -233,19 +230,44 @@ p {
     display: flex;
     justify-content: space-between;
     background-color: #360707;
+}
+
+button {
     color: white;
 }
 
 
 
+/* CALCULO PRECIOS */
 
-
-
-
-
-#pack {
+#calculoPrecios {
     background-color: #360707;
+    text-align: center;
 }
+
+#estrellas {
+    opacity: 80%;
+}
+
+#comodidades {
+    text-align: left;
+}
+
+.caracteristicas {
+    display: flex;
+    align-items: center;
+}
+
+.caracteristicas i {
+    font-size: 1.5em;
+}
+
+
+
+
+
+
+
 
 /* FOOTER */
 
@@ -258,6 +280,6 @@ footer a {
     text-decoration: none;
 }
 
-h3 {
+h6 {
     text-align: end;
 }

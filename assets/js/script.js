@@ -64,6 +64,7 @@ const removerHSugeridos = () => {
 }
 
 
+
 // MOFIFICAR DATOS
 
 modificarDatos = (pasajeros) => {
@@ -72,6 +73,7 @@ modificarDatos = (pasajeros) => {
         vuelo.Total = (vuelo.Pasaje * pasajeros) * 1.21;
     }
 }
+
 
 
 // HTML LUGAR
@@ -85,7 +87,7 @@ htmlLugar = (_destino, eleccionDestino, descripcionLugar) => {
             <section id= "destinoLugar">
                 <img src="assets/images/Inicio/ciudades/${fotoLugar}.jpg" alt="" class="destinoImg">
                 <div class="datos">
-                    <h2>${eleccionDestino}</h2>
+                    <h3>${eleccionDestino}</h3>
                     <p>${descripcionLugar.Descripción}</p>
                 </div>
             </section>
@@ -93,9 +95,10 @@ htmlLugar = (_destino, eleccionDestino, descripcionLugar) => {
 }
 
 
+
 // HTML HOTEL
 
-htmlHotel = (_destino, eleccionHotel, descripcionLugar) => {
+htmlHotel = (destino, eleccionHotel, descripcionLugar) => {
     let fotoHotel = eleccionHotel
     if (eleccionHotel == "Huanzhu Palace") {
         fotoHotel = "Huanzhu"
@@ -107,13 +110,63 @@ htmlHotel = (_destino, eleccionHotel, descripcionLugar) => {
         fotoHotel = "Hilton"
     }
     $("#destino").append(`
-            <section id= "destinoHotel">
-                <div class="datos">
-                    <h2>${eleccionHotel}</h2>
-                    <p>${descripcionLugar.Descripción}</p>
+        <section id= "destinoHotel">
+            <div class="datos">
+                <h3>${eleccionHotel}</h3>
+                <p>${descripcionLugar.Descripción}</p>
+                <a href="#calculoPrecios"><button class="inputs boton">Consultar Valores</button></a>
+            </div>
+            <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">
+        </section>
+    `)
+    $("button").on("click", (e) => {
+        e.preventDefault();
+        htmlValores(destino, eleccionDestino, eleccionHotel)
+        const estrellas = document.getElementById("estrellas");
+        estrellas.scrollIntoView({ behavior: "smooth" });
+    })
+}
+
+
+
+// HTML VALORES
+
+htmlValores = (_destino, eleccionDestino, eleccionHotel) => {
+    $("#destino").append(`
+        <section id= "calculoPrecios">
+            <img src="assets/images/Inicio/estrellas.png" alt="" id="estrellas">
+            <h2>${eleccionHotel}, ${eleccionDestino}</h2>
+            <div id="flexCalculo">
+                <div id="comodidades">
+                    <h5>Comodidades</h5>
+                    <div>
+                        <div class="caracteristicas">
+                            <i class="fa-solid fa-water-ladder"></i>
+                            <p>Piscina Climatizada</p>
+                        </div>
+                        <div class="caracteristicas">
+                            <i class="fa-solid fa-wifi"></i>
+                            <p>Free Wifi</p>
+                        </div>
+                        <div class="caracteristicas">
+                            <i class="fa-solid fa-dumbbell"></i>
+                            <p>GYM Pass</p>
+                        </div>
+                        <div class="caracteristicas">
+                            <i class="fa-solid fa-spa"></i>
+                            <p>SPA</p>
+                        </div>
+                        <div class="caracteristicas">
+                            <i class="fa-solid fa-martini-glass-citrus"></i>
+                            <p>24 Hour Bar</p>
+                        </div>
+                    </div>
                 </div>
-                <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">
-            </section>
+                <div>
+                    <h5>Valores</h5>
+                </div>
+            </div>
+        </section>
         `)
 }
 
@@ -132,6 +185,8 @@ $(".h").on("click", function() {
     const hotelSeleccionado = $(this).find(".cat-title").text();
     $("#inputHotel").attr("value", hotelSeleccionado);
 });
+
+
 
 // SUGERIDOS
 
@@ -180,6 +235,7 @@ $("#inputHotel").on("keydown", (e) => {
 })
 
 
+
 // BUSCADOR
 
 $("form").on("submit", (e) => {
@@ -199,4 +255,6 @@ $("form").on("submit", (e) => {
     $("#destino").html("")
     htmlLugar(destino, eleccionDestino, descripcionLugar)
     htmlHotel(destino, eleccionHotel, descripcionLugar)
+    const destinoLugar = document.getElementById("destinoLugar");
+    destinoLugar.scrollIntoView({ behavior: "smooth" });
 })

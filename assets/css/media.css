@@ -153,13 +153,15 @@
     .destinoImg {
         width: 45%;
         height: 90%;
+        margin: 0vh 5vh;
     }
     .datos {
-        width: 50%;
-        padding: 0vh 12.5vh 20vh;
+        width: 100%;
+        margin: 0vh 5vh 15vh;
     }
-    .datos h2 {
-        font-size: 4em;
+    h3 {
+        font-size: 7em;
+        padding-bottom: 5vh;
     }
     p {
         font-size: 1.3em;
@@ -167,26 +169,55 @@
     }
     /* DESTINO LUGAR */
     #destinoLugar {
-        height: 70vh;
-    }
-    /* DESTINO HTEL */
-    #destinoHotel {
+        margin-top: -20vh;
         padding-top: 20vh;
         height: 90vh;
     }
-
-
-
-
-
-    #pack {
-        height: 50vh;
+    /* DESTINO HOTEL */
+    #destinoHotel {
+        padding-top: 20vh;
+        height: 100vh;
     }
+    .datos a {
+        margin-top: 10vh;
+    }
+    /* CALCULO PRECIOS */
+    #calculoPrecios {
+        padding-top: 10vh;
+        height: 100vh;
+    }
+    #estrellas {
+        width: 150px;
+        padding-bottom: 5vh;
+    }   
+    h5 {
+        font-size: 1.5em;
+        padding-bottom: 5vh;
+    }
+    #flexCalculo {
+        height: 57.5vh;
+        padding: 12.5vh 20vh 0vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    .caracteristicas {
+        margin-bottom: 3vh;
+    }
+    .caracteristicas i {
+        padding-right: 2vw;
+    }
+
+
+
+
+
+
+
     /* FOOTER */
     footer {
         padding: 2vh 3vw;
     }
-    h3 {
+    h6 {
         font-size: .8em;
         letter-spacing: 4px;
     }
