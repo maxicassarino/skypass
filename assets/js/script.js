@@ -78,7 +78,7 @@ modificarDatos = (pasajeros) => {
 
 // HTML LUGAR
 
-htmlLugar = (_destino, eleccionDestino, descripcionLugar) => {
+htmlLugar = (eleccionDestino, descripcionLugar) => {
     let fotoLugar = eleccionDestino
     if (eleccionDestino == "New York") {
         fotoLugar = "ny"
@@ -98,7 +98,7 @@ htmlLugar = (_destino, eleccionDestino, descripcionLugar) => {
 
 // HTML HOTEL
 
-htmlHotel = (destino, eleccionHotel, descripcionLugar) => {
+htmlHotel = (eleccionHotel, descripcionLugar) => {
     let fotoHotel = eleccionHotel
     if (eleccionHotel == "Huanzhu Palace") {
         fotoHotel = "Huanzhu"
@@ -114,16 +114,14 @@ htmlHotel = (destino, eleccionHotel, descripcionLugar) => {
             <div class="datos">
                 <h3>${eleccionHotel}</h3>
                 <p>${descripcionLugar.Descripción}</p>
-                <a href="#calculoPrecios"><button class="inputs boton">Consultar Valores</button></a>
+                <a href="#footer"><button class="inputs boton">Consultar Valores</button></a>
             </div>
             <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">
         </section>
     `)
-    $("button").on("click", (e) => {
-        e.preventDefault();
-        htmlValores(destino, eleccionDestino, eleccionHotel)
-        const estrellas = document.getElementById("estrellas");
-        estrellas.scrollIntoView({ behavior: "smooth" });
+    $("button").on("click", () => {
+        $("#calculoPrecios").remove()
+        htmlValores(eleccionDestino, eleccionHotel)
     })
 }
 
@@ -131,7 +129,7 @@ htmlHotel = (destino, eleccionHotel, descripcionLugar) => {
 
 // HTML VALORES
 
-htmlValores = (_destino, eleccionDestino, eleccionHotel) => {
+htmlValores = (eleccionDestino, eleccionHotel) => {
     $("#destino").append(`
         <section id= "calculoPrecios">
             <img src="assets/images/Inicio/estrellas.png" alt="" id="estrellas">
@@ -253,8 +251,8 @@ $("form").on("submit", (e) => {
 
     // HTML DESTINO
     $("#destino").html("")
-    htmlLugar(destino, eleccionDestino, descripcionLugar)
-    htmlHotel(destino, eleccionHotel, descripcionLugar)
+    htmlLugar(eleccionDestino, descripcionLugar)
+    htmlHotel(eleccionHotel, descripcionLugar)
     const destinoLugar = document.getElementById("destinoLugar");
     destinoLugar.scrollIntoView({ behavior: "smooth" });
 })
