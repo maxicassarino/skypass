@@ -170,16 +170,20 @@
     /* DESTINO LUGAR */
     #destinoLugar {
         margin-top: -20vh;
-        padding-top: 20vh;
-        height: 90vh;
+        padding: 20vh 0vh 15vh;
+        height: 105vh;
     }
     /* DESTINO HOTEL */
     #destinoHotel {
         padding-top: 20vh;
         height: 100vh;
     }
+    #caracteristicas i {
+        padding: 3vh;
+        font-size: 1.5em;
+    }
     .datos a {
-        margin-top: 10vh;
+        margin-top: 5vh;
     }
     /* CALCULO PRECIOS */
     #calculoPrecios {
@@ -189,22 +193,20 @@
     #estrellas {
         width: 150px;
         padding-bottom: 5vh;
-    }   
-    h5 {
+    }
+    #calculo {
+        margin: 10vh 85vh;
+        height: 30vh;
+    }
+    #calculo button {
+        padding: 1vh 0vh;
+        font-size: 2em;
+    }
+    #calculo span {
         font-size: 1.5em;
-        padding-bottom: 5vh;
     }
-    #flexCalculo {
-        height: 57.5vh;
-        padding: 12.5vh 20vh 0vh;
-        display: flex;
-        justify-content: space-between;
-    }
-    .caracteristicas {
-        margin-bottom: 3vh;
-    }
-    .caracteristicas i {
-        padding-right: 2vw;
+    #valor {
+        padding: 1vh 0vh;
     }
 
 

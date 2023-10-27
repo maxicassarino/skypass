@@ -249,18 +249,29 @@ button {
     opacity: 80%;
 }
 
-#comodidades {
-    text-align: left;
-}
-
-.caracteristicas {
+#calculo {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.caracteristicas i {
-    font-size: 1.5em;
+.calculo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #171218;
+    border: 1px solid white;
 }
+
+#calculo button {
+    cursor: pointer;    
+    background-color: #171218;
+    border: #171218;
+}
+
+
+
+
 
 
 

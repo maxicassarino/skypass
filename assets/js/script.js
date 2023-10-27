@@ -1,15 +1,13 @@
-localStorage.clear()
-
-localStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
+sessionStorage.setItem(`Bienvenida`, `Hola Pasajeros!`)
 
 // OJBETOS
 
-const vuelos = [{ID: "v1", Lugar: "New York", Pasaje: 1095, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {ID: "v2", Lugar: "Madrid", Pasaje: 1500, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {ID: "v3", Lugar: "Miami", Pasaje: 950, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {ID: "v4", Lugar: "Londres", Pasaje: 1750, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {ID: "v5", Lugar: "Aruba", Pasaje: 800, Pasajeros: 1, Recargo: "21%", Total: 0},
-                {ID: "v6", Lugar: "Tokio", Pasaje: 2200, Pasajeros: 1, Recargo: "21%", Total: 0}
+const vuelos = [{ID: "v1", Lugar: "New York", Estadia: 1095, Dias: 1, Pasajeros: 1, Recargo: "21%", Total: 1095 *1.21},
+                {ID: "v2", Lugar: "Madrid", Estadia: 1500, Dias: 1, Pasajeros: 1, Recargo: "21%", Total: 1500*1.21},
+                {ID: "v3", Lugar: "Miami", Estadia: 950, Dias: 1, Pasajeros: 1, Recargo: "21%", Total: 950*1.21},
+                {ID: "v4", Lugar: "Londres", Estadia: 1750, Dias: 1, Pasajeros: 1, Recargo: "21%", Total: 1750*1.21},
+                {ID: "v5", Lugar: "Aruba", Estadia: 800, Dias: 1, Pasajeros: 1, Recargo: "21%", Total: 800*1.21},
+                {ID: "v6", Lugar: "Tokio", Estadia: 1600, Dias: 1, Pasajeros: 1, Recargo: "21%", Total: 1600*1.21}
 ]
 
 const descripcionesLugar = [{Lugar: "New York", Descripción: "Una atmósfera cosmopolita envuelve a sus más de 8 millones de habitantes y turistas que transitan por sus calles día y noche. Entre rascacielos emblemáticos y parques que te invitan a bajar el ritmo, el destino está lleno de experiencias que son verdaderos descubrimientos multiculturales."},
@@ -67,11 +65,9 @@ const removerHSugeridos = () => {
 
 // MOFIFICAR DATOS
 
-modificarDatos = (pasajeros) => {
-    for (const vuelo of vuelos) {
-        vuelo.Pasajeros = pasajeros;
-        vuelo.Total = (vuelo.Pasaje * pasajeros) * 1.21;
-    }
+modificarDatos = (pasajeros, dias) => {
+    const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
+    $("#valor").text("US$ " + ((buscarVuelo.Estadia * dias) * pasajeros)* 1.21)
 }
 
 
@@ -98,7 +94,7 @@ htmlLugar = (eleccionDestino, descripcionLugar) => {
 
 // HTML HOTEL
 
-htmlHotel = (eleccionHotel, descripcionLugar) => {
+htmlHotel = (eleccionHotel) => {
     let fotoHotel = eleccionHotel
     if (eleccionHotel == "Huanzhu Palace") {
         fotoHotel = "Huanzhu"
@@ -113,7 +109,13 @@ htmlHotel = (eleccionHotel, descripcionLugar) => {
         <section id= "destinoHotel">
             <div class="datos">
                 <h3>${eleccionHotel}</h3>
-                <p>${descripcionLugar.Descripción}</p>
+                <div id="caracteristicas">
+                    <i class="fa-solid fa-water-ladder"></i>
+                    <i class="fa-solid fa-wifi"></i>
+                    <i class="fa-solid fa-dumbbell"></i>
+                    <i class="fa-solid fa-spa"></i>
+                    <i class="fa-solid fa-martini-glass-citrus"></i>
+                </div>
                 <a href="#footer"><button class="inputs boton">Consultar Valores</button></a>
             </div>
             <img src="assets/images/Inicio/ciudades/${fotoHotel}.jpg" alt="" class="destinoImg">
@@ -130,43 +132,75 @@ htmlHotel = (eleccionHotel, descripcionLugar) => {
 // HTML VALORES
 
 htmlValores = (eleccionDestino, eleccionHotel) => {
+    const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
     $("#destino").append(`
         <section id= "calculoPrecios">
             <img src="assets/images/Inicio/estrellas.png" alt="" id="estrellas">
             <h2>${eleccionHotel}, ${eleccionDestino}</h2>
-            <div id="flexCalculo">
-                <div id="comodidades">
-                    <h5>Comodidades</h5>
-                    <div>
-                        <div class="caracteristicas">
-                            <i class="fa-solid fa-water-ladder"></i>
-                            <p>Piscina Climatizada</p>
-                        </div>
-                        <div class="caracteristicas">
-                            <i class="fa-solid fa-wifi"></i>
-                            <p>Free Wifi</p>
-                        </div>
-                        <div class="caracteristicas">
-                            <i class="fa-solid fa-dumbbell"></i>
-                            <p>GYM Pass</p>
-                        </div>
-                        <div class="caracteristicas">
-                            <i class="fa-solid fa-spa"></i>
-                            <p>SPA</p>
-                        </div>
-                        <div class="caracteristicas">
-                            <i class="fa-solid fa-martini-glass-citrus"></i>
-                            <p>24 Hour Bar</p>
-                        </div>
-                    </div>
+            <div id="calculo">
+                <div class="calculo">
+                    <button class="botones" id="restarE">-</button>
+                    <span id="valorE">1</span>
+                    <button class="botones" id="sumarE">+</button>
                 </div>
-                <div>
-                    <h5>Valores</h5>
+                <div class="calculo">
+                    <button class="botones" id="restarP">-</button>
+                    <span id="valorP">1</span>
+                    <button class="botones" id="sumarP">+</button>
+                </div>
+                <div class="calculo">
+                    <span id="valor">US$ ${buscarVuelo.Total}</span>
                 </div>
             </div>
         </section>
         `)
+    valores()
 }
+
+
+
+// VALOR ESTADIA
+
+valores = () => {
+    let valorActualE = 1
+    $("#sumarE").on("click", function() {
+        valorActualE++;
+        if (valorActualE > 10) {
+            valorActualE = 10;
+        }
+        actualizarResultadoE();
+    });
+    $("#restarE").on("click", function() {
+        valorActualE--;
+        if (valorActualE < 1) {
+            valorActualE = 1;
+        }
+        actualizarResultadoE();
+    });
+    let valorActualP = 1
+    $("#sumarP").on("click", function() {
+        valorActualP++;
+        if (valorActualP > 5) {
+            valorActualP = 5;
+        }
+        actualizarResultadoP();
+    });
+    $("#restarP").on("click", function() {
+        valorActualP--;
+        if (valorActualP < 1) {
+            valorActualP = 1;
+        }
+        actualizarResultadoP();
+    });
+    actualizarResultadoE = () => {
+        $("#valorE").text(valorActualE);
+        modificarDatos(valorActualP, valorActualE)
+    }
+    actualizarResultadoP = () => {
+        $("#valorP").text(valorActualP);
+        modificarDatos(valorActualP, valorActualE)
+    }
+} 
 
 
 
@@ -240,15 +274,8 @@ $("form").on("submit", (e) => {
     e.preventDefault();
     eleccionDestino = e.target.children[0].value;
     eleccionHotel = e.target.children[2].value;
-    // let pasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"))
-
-    // MODIFICACION DE DATOS
-    // modificarDatos(pasajeros)
-
     // BUSQUEDA DE DATOS
-    // const buscarVuelo = vuelos.find(busqueda => busqueda.Lugar === eleccionDestino)
     const descripcionLugar = descripcionesLugar.find(busqueda => busqueda.Lugar === eleccionDestino)
-
     // HTML DESTINO
     $("#destino").html("")
     htmlLugar(eleccionDestino, descripcionLugar)
