@@ -6,109 +6,66 @@
 }
 
 
-@media screen and (max-width: 550px) {
-    /* HEADER */
-    #nav {
-        display: none;
-    }
-    #nav-links {
-        display: none;
-    }
-    #nav-title {
-        font-size: 1.7em;
-    }
-}
-
-
-
-
-
-
-
-
-
-@media screen and (min-width: 551px) and (max-width: 1200px) {
-    /* HEADER */
-    #nav {
-        display: none;
-    }
-    #nav-links {
-        display: none;
-    }
-    #nav-title {
-        font-size: 2.5em;
-    }
-}
-
-
-
-
-
-
-
-
-@media screen and (min-width: 1201px) {
-    body {
-        background-image: url(../images/Inicio/portada.jpg);
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+@media screen and (min-width: 10px){
     /* HEADER */
     header {
-        padding: 2vh 3vw;
+        padding: 15px 40px;
     }
-    #nav {
-        display: none;
-    }
-    #nav-links {
-        display: none;
-    }
-    #nav-title {
-        font-size: 2.5em;
+    h1 {
+        font-size: .9em;
     }
     /* PORTADA */
     #portada {
-        padding-left: 7vh;
+        height: 325px;
+        padding-left: 40px; 
+        background-image: url(../images/Inicio/portada.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
     }
     h2 {
-        font-size: 5em;
-        letter-spacing: 3px;
+        font-size: 20px;
+        letter-spacing: 1px;
     }
     #viaja {
-        top: 50vh;
+        position: absolute;
+        top: 200px;
     }
     #klm {
-        top: 62.5vh;
+        position: absolute;
+        top: 235px;
     }
     /* VUELOS y HOTELES*/
     #vuelos {
-        height: 175vh;
+        height: 1600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     #hoteles {
-        height: 125vh;
+        height: 850px;
     }
     #vuelos-title {
-        padding-right: 12vh;
+        padding: 40px 40px 0px;
         text-align: right;
     }
     #hoteles-title {
-        padding-left: 13.5vh;
-    }
-    #vuelos .cat {
-        height: 30%;
-    }
-    #hoteles .cat {
-        height: 50%;
+        padding: 40px 40px 0px;
     }
     .cat {
+        height: 750px;
         display: flex;
+        flex-direction: column;
         justify-content: space-evenly;
+        align-items: center;
     }
     .subcat {
-        width: 50vh;
+        width: 300px;
+        height: 200px;
     }
     .cat-title {
-        font-size: 2em;
+        font-size: 25px;
+        text-align: center;
     }
     .cat-title::after {
         content: "";
@@ -124,97 +81,103 @@
     }
     /* BUSCADOR */
     #buscador {
-        height: 75vh;
+        height: 300px;
+    }
+    #buscador .background {
+        height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0vh 15vh;
+        padding: 0vh 75px;
+    }
+    #buscador h2 {
+        padding-right: 20px;
     }
     form {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        height: 40%;
-        width: 40%;
+        justify-content: space-between;
+        height: 200px;
+        width: 125px;
     }
     .inputs {
         width: 100%;
-        padding: 1.5vh;
-        font-size: 1.1em;
+        padding: 10px;
+        font-size: .7em;
     }
     .sugeridos li {
-        padding: 1.5vh;
-        font-size: 1.1em;
+        padding: 5px;
+        font-size: .7em;
     }
     /* DESTINO */
     #destino {
         height: auto;
     }
+    #destinoLugar {
+        padding: 20px 40px;
+        height: 500px;
+    }
+    #destinoLugar .background {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #destinoHotel {
+        padding: 0px 40px;
+        height: 450px;
+    }
+    #destinoHotel .background {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
     .destinoImg {
-        width: 45%;
-        height: 90%;
-        margin: 0vh 5vh;
+        margin-top: 30px;
+        width: 300px;
+        height: 200px;
     }
     .datos {
         width: 100%;
-        margin: 0vh 5vh 15vh;
+        height: 300px;
     }
     h3 {
-        font-size: 7em;
-        padding-bottom: 5vh;
-    }
-    p {
-        font-size: 1.3em;
-        letter-spacing: 1px;
-    }
-    /* DESTINO LUGAR */
-    #destinoLugar {
-        margin-top: -20vh;
-        padding: 20vh 0vh 15vh;
-        height: 105vh;
-    }
-    /* DESTINO HOTEL */
-    #destinoHotel {
-        padding-top: 20vh;
-        height: 100vh;
+        font-size: 25px;
     }
     #caracteristicas i {
-        padding: 3vh;
-        font-size: 1.5em;
+        padding: 15px;
+        font-size: .7em;
     }
-    .datos a {
-        margin-top: 5vh;
+    p {
+        padding: 10px 50px 30px;
+        font-size: .7em;
+        letter-spacing: 1px;
     }
     /* CALCULO PRECIOS */
     #calculoPrecios {
-        padding-top: 10vh;
-        height: 100vh;
+        height: 400px;
+        padding: 30px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
     #estrellas {
-        width: 150px;
-        padding-bottom: 5vh;
+        width: 100px;
     }
     #calculo {
-        margin: 10vh 85vh;
-        height: 30vh;
+        height: 150px;
+        width: 125px;
+        font-size: .7em;
     }
     #calculo button {
-        padding: 1vh 0vh;
-        font-size: 2em;
-    }
-    #calculo span {
-        font-size: 1.5em;
+        padding: 10px;
     }
     #valor {
-        padding: 1vh 0vh;
+        padding: 10px;
     }
-
-
-
-
-
-
-
     /* FOOTER */
     footer {
         padding: 2vh 3vw;
@@ -222,5 +185,268 @@
     h6 {
         font-size: .8em;
         letter-spacing: 4px;
+    }
+}
+
+
+@media screen and (min-width: 600px){
+    /* PORTADA */
+    #portada {
+        height: 400px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    #viaja {
+        top: 250px;
+    }
+    #klm {
+        top: 290px;
+    }
+    /* VUELOS y HOTELES*/
+    #vuelos {
+        height: 1900px;
+    }
+    #hoteles {
+        height: 1000px;
+    }
+    .cat {
+        height: 900px;
+    }
+    .subcat {
+        width: 350px;
+        height: 225px;
+    }
+    /* BUSCADOR */
+    form {
+        width: 225px;
+    }
+    /* DESTINO */
+    #destinoHotel {
+        padding: 10px 0px 50px;
+        height: 550px;
+    }
+    .destinoImg {
+        width: 350px;
+        height: 225px;
+    }
+    #caracteristicas i {
+        font-size: 1em;
+    }
+    p {
+        padding: 0px 100px;
+    }
+    /* CALCULO PRECIOS */
+    #calculoPrecios {
+        padding: 0px 0px 30px;
+    }
+    #calculo {
+        width: 165px;
+    }
+}
+
+
+@media screen and (min-width: 850px){
+    /* PORTADA */
+    #portada {
+        height: 500px;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    #viaja {
+        top: 300px;
+    }
+    #klm {
+        top: 340px;
+    }
+    /* VUELOS y HOTELES*/
+    #vuelos {
+        height: 750px;
+    }   
+    #hoteles {
+        height: 425px;
+    }
+    .cat {
+        height: 325px;
+        flex-direction: row;
+    }
+    .subcat {
+        width: 250px;
+    }
+    /* BUSCADOR */
+    form {
+        width: 350px;
+    }
+    .inputs {
+        font-size: .8em;
+    }
+    .sugeridos li {
+        padding: 10px;
+        font-size: .8em;
+    }
+    /* DESTINO */
+    #destinoLugar {
+        padding: 0px 75px;
+        height: 450px;
+    }
+    #destinoLugar .background {
+        flex-direction: row;
+    }
+    #destinoHotel {
+        padding: 0px 75px;
+        height: 400px;
+    }
+    #destinoHotel .background {
+        flex-direction: row;
+    }
+    .destinoImg {
+        height: 250px;
+    }
+    .datos {
+        padding-left: 50px;
+    }
+    #destinoHotel .datos {
+        width: 50%;
+        padding-left: 0px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+    #caracteristicas i {
+        font-size: 1.3em;
+    }
+    p {
+        padding: 0px 50px;
+        font-size: .8em;
+    }
+    /* CALCULO PRECIOS */
+    #calculo {
+        width: 200px;
+        font-size: .9em;
+    }
+}
+
+
+@media screen and (min-width: 1094px) {
+    /* LIMITES */
+    .background {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1024px;
+    }
+    /* HEADER */
+    header {
+        padding: 20px 0px;
+    }
+    /* PORTADA */
+    #portada {
+        height: 675px;
+        padding-left: 0px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    #viaja {
+        top: 440px;
+    }
+    #klm {
+        top: 490px;
+    }
+    /* VUELOS y HOTELES*/
+    #vuelos {
+        height: 875px;
+    }
+    #vuelos-title {
+        padding-top: 50px;
+        text-align: right;
+    }
+    #hoteles {
+        height: 525px;
+    }
+    #hoteles-title {
+        padding: 0px;
+    }
+    .cat {
+        height: 375px;
+        justify-content: space-between;
+    }
+    .subcat {
+        width: 300px;
+        height: 275px;
+    }
+    /* BUSCADOR */
+    #buscador {
+        height: 400px;
+    }
+    #buscador .background {
+        padding: 0vh;
+    }
+    form {
+        width: 450px;
+    }
+    .inputs {
+        font-size: 1em;
+    }
+    .sugeridos li {
+        font-size: 1em;
+    }
+    /* DESTINO */
+    #destinoLugar {
+        padding-top: 50px;
+        height: 500px;
+    }
+    #destinoLugar .background {
+        align-items: start;
+    }
+    #destinoHotel {
+        height: 500px;
+    }
+    #destinoHotel .background {
+        flex-direction: row;
+    }
+    .destinoImg {
+        width: 450px;
+        height: 300px;
+    }
+    .datos {
+        padding-left: 100px;
+    }
+    #destinoHotel .datos {
+        width: 45%;
+        padding-left: 0px;
+    }
+    h3 {
+        font-size: 45px;
+        padding-bottom: 50px;
+    }
+    #caracteristicas i {
+        font-size: 1.5em;
+        padding-bottom: 70px;
+    }
+    p {
+        padding: 0px;
+        font-size: 1em;
+    }
+    /* CALCULO PRECIOS */
+    #calculoPrecios {
+        height: 450px;
+        padding: 0px;
+        justify-content: space-between;
+    }
+    #estrellas {
+        width: 150px;
+    }
+    #calculo {
+        width: 200px;
+        height: 250px;
+        padding-bottom: 50px;
+        font-size: .9em;
     }
 }

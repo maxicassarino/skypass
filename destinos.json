@@ -1,0 +1,8 @@
+[
+    {"Lugar": "New York", "Estadia": 395, "Dias": 1, "Pasajeros": 1, "Total": 477.95},
+    {"Lugar": "Madrid", "Estadia": 400, "Dias": 1, "Pasajeros": 1, "Total": 484},
+    {"Lugar": "Miami", "Estadia": 300, "Dias": 1, "Pasajeros": 1, "Total": 363},
+    {"Lugar": "Londres", "Estadia": 450, "Dias": 1, "Pasajeros": 1, "Total": 544.5},
+    {"Lugar": "Aruba", "Estadia": 250, "Dias": 1, "Pasajeros": 1, "Total": 302.5},
+    {"Lugar": "Tokio", "Estadia": 350, "Dias": 1, "Pasajeros": 1, "Total": 423.5}
+]

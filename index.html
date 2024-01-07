@@ -20,84 +20,80 @@
 </head>
 
 <body>
-    <header>
+    <header class="background">
         <a href=""><h1 id="nav-title">SKYPASS</h1></a>
-        <nav id="nav">
-            <ul id="nav-links">
-                <li><a href="#vuelos-title">Vuelos</a></li>
-                <li><a href="#hoteles-title">Hoteles</a></li>
-                <li><a href="#buscador">Armá tu Viaje</a></li>
-            </ul>
-        </nav>
         <nav id="nav_responsive">
             <div><i class="fa-solid fa-bars"></i></div>
-            <ul id="nav-links">
-                <li><a href="#vuelos-title">Vuelos</a></li>
-                <li><a href="#hoteles-title">Hoteles</a></li>
-                <li><a href="#buscador">Armá tu Viaje</a></li>
-            </ul>
         </nav>
     </header>
     <main>
         <section id="portada">
-            <h2 id="viaja">VIAJA</h2>
-            <h2 id="klm">CON  KLM.</h2>
+            <div class="background">
+                <h2 id="viaja">VIAJA</h2>
+                <h2 id="klm">CON  KLM.</h2>
+            </div>
         </section>
         <section id="vuelos">
-            <h2 id="vuelos-title">VUELOS</h2>
-            <div class="cat">
-                <a href="#hoteles-title" class="subcat d" id="v1">
-                <h4 class="cat-title">New York</h4>
-                </a>
-                <a href="#hoteles-title" class="subcat d" id="v2">
-                    <h4 class="cat-title">Madrid</h4>
-                </a>
-                <a href="#hoteles-title" class="subcat d" id="v3">
-                    <h4 class="cat-title">Miami</h4>
-                </a>
-            </div>
-            <div class="cat">
-                <a href="#hoteles-title" class="subcat d" id="v4">
-                    <h4 class="cat-title">Londres</h4>
-                </a>
-                <a href="#hoteles-title" class="subcat d" id="v5">
-                    <h4 class="cat-title">Aruba</h4>
-                </a>
-                <a href="#hoteles-title" class="subcat d" id="v6">
-                    <h4 class="cat-title">Tokio</h4>
-                </a>
+            <div class="background">
+                <h2 id="vuelos-title">VUELOS</h2>
+                <div class="cat">
+                    <a href="#hoteles-title" class="subcat d" id="v1">
+                    <h4 class="cat-title">New York</h4>
+                    </a>
+                    <a href="#hoteles-title" class="subcat d" id="v2">
+                        <h4 class="cat-title">Madrid</h4>
+                    </a>
+                    <a href="#hoteles-title" class="subcat d" id="v3">
+                        <h4 class="cat-title">Miami</h4>
+                    </a>
+                </div>
+                <div class="cat">
+                    <a href="#hoteles-title" class="subcat d" id="v4">
+                        <h4 class="cat-title">Londres</h4>
+                    </a>
+                    <a href="#hoteles-title" class="subcat d" id="v5">
+                        <h4 class="cat-title">Aruba</h4>
+                    </a>
+                    <a href="#hoteles-title" class="subcat d" id="v6">
+                        <h4 class="cat-title">Tokio</h4>
+                    </a>
+                </div>
             </div>
         </section>
         <section id="hoteles">
-            <h2 id="hoteles-title">HOTELES</h2>
-            <div class="cat">
-                <a href="#buscador" class="subcat h" id="h1">
-                    <h4 class="cat-title">Hilton Hotel</h4>
-                </a>
-                <a href="#buscador" class="subcat h" id="h2">
-                    <h4 class="cat-title">Marriot International</h4>
-                </a>
-                <a href="#buscador" class="subcat h" id="h3">
-                    <h4 class="cat-title">Huanzhu Palace</h4>
-                </a>
+            <div class="background">
+                <h2 id="hoteles-title">HOTELES</h2>
+                <div class="cat">
+                    <a href="#buscador" class="subcat h" id="h1">
+                        <h4 class="cat-title">Hilton Hotel</h4>
+                    </a>
+                    <a href="#buscador" class="subcat h" id="h2">
+                        <h4 class="cat-title">Marriot International</h4>
+                    </a>
+                    <a href="#buscador" class="subcat h" id="h3">
+                        <h4 class="cat-title">Huanzhu Palace</h4>
+                    </a>
+                </div>
             </div>
         </section>
         <section id="buscador">
-            <div>
-                <h2>Armá</h2>
-                <h2>Tu Viaje</h2>
+            <div class="background">
+                <div>
+                    <h2>Armá</h2>
+                    <h2>Tu Viaje</h2>
+                </div>
+                <form>
+                    <input type ="text" class="inputs" placeholder ="Destino" id="inputDestino">
+                    <div class="contenedorSugeridos">
+                        <ul id="destinosSugeridos" class="sugeridos"></ul>
+                    </div>
+                    <input type ="text" class="inputs" placeholder ="Estadia" id="inputHotel">
+                    <div class="contenedorSugeridos">
+                        <ul id="hotelesSugeridos" class="sugeridos"></ul>
+                    </div>
+                    <a href="#destinoLugar"><input type="submit" class="inputs boton"></a>
+                </form>
             </div>
-            <form>
-                <input type ="text" class="inputs" placeholder ="Destino" id="inputDestino">
-                <div class="contenedorSugeridos">
-                    <ul id="destinosSugeridos" class="sugeridos"></ul>
-                </div>
-                <input type ="text" class="inputs" placeholder ="Estadia" id="inputHotel">
-                <div class="contenedorSugeridos">
-                    <ul id="hotelesSugeridos" class="sugeridos"></ul>
-                </div>
-                <a href="#destinoLugar"><input type="submit" class="inputs boton"></a>
-            </form>
         </section>
         <section id="destino">
         </section>
