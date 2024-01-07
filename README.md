@@ -1,6 +1,6 @@
 # SKYPASS
 
-E-commerce website for the sale of tourist packages. (Unfinished)
+Landing page for a travel package agency. (Coderhouse Project)
 
 # Home
 
